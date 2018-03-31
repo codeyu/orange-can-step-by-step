@@ -30,6 +30,8 @@
 }
 text{
   font-family: Microsoft YaHei;
+  font-size: 24rpx;
+  color: #666;
 }
 page{
   background-color: #ecc0a8;

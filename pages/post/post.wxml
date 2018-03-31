@@ -1,0 +1,65 @@
+<!--pages/post/post.wxml-->
+<view>
+  <swiper indicator-dots='true' autoplay='true' interval='3000' vertical='{{false}}'>
+    <swiper-item>
+      <image src='/images/post/post-1@text.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/post/post-2@text.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/post/post-3@text.jpg'></image>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="post-container">
+  <view class="post-author-date">
+    <image src="/images/avatar/avatar-3.png"></image>
+    <text>Mar 31 2018</text>
+  </view>
+  <text class="post-title">看哈根达斯如何成为最贵最成功的冰淇凌</text>
+  <image class="post-image" src="/images/post/post-4.jpg" mode='aspectFill'></image>
+  <text class="post-content">身在冰淇淋行业中，没有人是不知道哈根达斯的。在冰淇淋行业中，哈根达斯就堪比香奈儿、爱马仕这样的奢侈品品牌，女孩子们也对其情有独钟。要知道，哈根达斯冰淇淋的价格是普通冰淇淋的5-10倍，但是 ...</text>
+  <view class="post-like">
+    <image src="/images/icon/wx_app_collect.png"></image>
+    <text>101</text>
+    <image src="/images/icon/wx_app_view.png"></image>
+    <text>900</text>
+    <image src="/images/icon/wx_app_message.png"></image>
+    <text>4</text>
+  </view>
+</view>
+<view class="post-container">
+  <view class="post-author-date">
+    <image src="/images/avatar/avatar-3.png"></image>
+    <text>Mar 31 2018</text>
+  </view>
+  <text class="post-title">记忆里的春节</text>
+  <image class="post-image" src="/images/post/post-1.jpg" mode='aspectFill'></image>
+  <text class="post-content">记忆里的春节小的时候，特别盼望过年。有好吃的，有好玩的，有热闹可以看，还有新衣服可以穿。在乡下，每到腊月，家家户户开始陆续地杀猪。 ...</text>
+  <view class="post-like">
+    <image src="/images/icon/wx_app_collect.png"></image>
+    <text>101</text>
+    <image src="/images/icon/wx_app_view.png"></image>
+    <text>900</text>
+    <image src="/images/icon/wx_app_message.png"></image>
+    <text>4</text>
+  </view>
+</view>
+<view class="post-container">
+  <view class="post-author-date">
+    <image src="/images/avatar/avatar-3.png"></image>
+    <text>Mar 31 2018</text>
+  </view>
+  <text class="post-title">村旁那飞驰而过的列车</text>
+  <image class="post-image" src="/images/post/post-5.jpg" mode='aspectFill'></image>
+  <text class="post-content">自打我小时候记事到如今，村旁那铁路和飞驰的列车，虽经多次变迁，但总是从我的家乡杜家堡村旁经过。那些呼啸而过的列车，给我的童年和老年人生，留下了很多有趣的记忆和诸多的故事。 ...</text>
+  <view class="post-like">
+    <image src="/images/icon/wx_app_collect.png"></image>
+    <text>101</text>
+    <image src="/images/icon/wx_app_view.png"></image>
+    <text>900</text>
+    <image src="/images/icon/wx_app_message.png"></image>
+    <text>4</text>
+  </view>
+</view>
