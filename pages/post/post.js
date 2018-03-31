@@ -1,5 +1,5 @@
 // pages/post/post.js
-var dataObj = require("../../data/data.js")
+import {DBPost} from "../../db/DBPost.js";
 Page({
 
   /**
@@ -20,9 +20,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var dbPost = new DBPost();
     this.setData({
-      postList: dataObj.postList
+      postList: dbPost.getAllPostData()
     })
     console.log("onLoad: 加载");
   },

@@ -76,3 +76,10 @@
 4. 引入模版的方式有import和include。区别：
     * include页面渲染时只是简单的替换。模版文件需去掉 `<template></template>` 标签
     * import可以使用 data 属性传输数据
+5. 应用程序的生命周期：
+    * onLaunch  全局只触发一次
+    * onShow
+    * onHide
+    * onError
+6. 使用 ES6 语法写程序。
+7. 小程序的缓存没有过期时间，就是一个本地数据库。当数据有变化时，要注意更新缓存。
