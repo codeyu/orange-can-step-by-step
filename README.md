@@ -21,3 +21,20 @@
     * top
     * bottom right
     * ... ([详见文档](https://developers.weixin.qq.com/miniprogram/dev/component/image.html))
+4. 页面生命周期
+    * onLoad: 加载，一个页面只会调用一次
+    * onShow: 显示，每次打开页面都会调用
+    * onReady: 渲染，一个页面只会调用一次
+    * onHide: 隐藏，如执行 `navigateTo` 方法，或使用tab栏切换页面
+    * onUnload: 卸载，如执行 `redirectTo` 方法，或 `navigateBack` 方法
+5. 页面的特定事件处理函数
+    * onPullDownPrefresh: 监听用户下拉页面事件处理函数 
+    * onReachBottom: 监听页面上拉触底事件处理函数
+    * onShareAppMessage: 用户点击右上角分享
+6. 设置页面数据，会使页面 `Rerender`（会触发 `onShow` ）,见下图：
+    ![](mina-lifecycle.png)
+7. 小程序使用 Mustache 语法双大括号 `{{}}` 在 wxml 组件里进行数据绑定。页面数据绑定的两种方式：
+    * 初始化数据绑定，数据写在 `Page(Object)` 方法 Object 对象参数的 `data:{}` 属性里。
+    * 使用 `setData(Object)` 方法做数据绑定，这样的数据更新会引起页面 Rerender（重新渲染），参考上图。
+8. 注意复杂对象绑定时，页面引用的数据结构的方式
+9. `setData(Object)` 方法的对象参数的 `key` 很灵活，如 `"collectionNum.array[0]":"111"`。数据绑定出问题目前没有任何异常提示，请通过调试面板里的 `AppData` tab页查看排除。
