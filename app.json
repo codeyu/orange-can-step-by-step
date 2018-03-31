@@ -1,0 +1,9 @@
+{
+  "pages":[
+    "pages/welcome/welcome",
+    "pages/orange/orange"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ecc0a8"
+  }
+}
