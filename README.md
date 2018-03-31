@@ -1,5 +1,17 @@
 # orange-can-step-by-step
 
+说明：鉴于小程序的版本更新，我会加入新的内容作为学习笔记。
+
+## 第一章和第二章 
+快速阅读，同时把官方教程快速过一遍，从第三章开始实践。
+
+小程序官方教程：
+* [简易教程](https://developers.weixin.qq.com/miniprogram/dev/)
+* [框架](https://developers.weixin.qq.com/miniprogram/dev/framework/MINA.html)
+* [组件](https://developers.weixin.qq.com/miniprogram/dev/component/)
+* [API](https://developers.weixin.qq.com/miniprogram/dev/api/)
+* [工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/devtools.html)
+
 ## 第三章
 
 知识点
@@ -31,6 +43,8 @@
     * onPullDownPrefresh: 监听用户下拉页面事件处理函数 
     * onReachBottom: 监听页面上拉触底事件处理函数
     * onShareAppMessage: 用户点击右上角分享
+    * onPageScroll: 页面滚动触发事件的处理函数
+    * onTabItemTap: 当前是 tab 页时，点击 tab 时触发
 6. 设置页面数据，会使页面 `Rerender`（会触发 `onShow` ）,见下图：
     ![](mina-lifecycle.png)
 7. 小程序使用 Mustache 语法双大括号 `{{}}` 在 wxml 组件里进行数据绑定。页面数据绑定的两种方式：
@@ -39,8 +53,8 @@
 8. 注意复杂对象绑定时，页面引用的数据结构的方式。
 9. `setData(Object)` 方法的对象参数的 `key` 很灵活，如 `"collectionNum.array[0]":"111"`。数据绑定出问题目前没有任何异常提示，请通过调试面板里的 `AppData` tab页查看排除。
 10. 用 `<block></block>` 标签进行列表渲染，属性 `wx:for` 值为要绑定的数据(数组)，属性 `wx:for-item`  值为要遍历的变量名，属性 `wx:for-index` 的值为索引变量。
-11. `redirectTo(Object)` 方法会触发卸载(onUnload)事件，`navigateTo(Object)` 方法会触发隐藏(onHide)事件，跳转后右上角有返回图标。使用 `navigateTo(Object)` 方法跳转建议不要超过3层。
-12. `switchTab(Object)` 方法只能用在 tabbar 选型卡的跳转。
+11. `redirectTo(Object)` 方法会触发卸载(onUnload)事件，`navigateTo(Object)` 方法会触发隐藏(onHide)事件，跳转后右上角有返回图标。使用 `navigateTo(Object)` 方法跳转建议不要超过3层。`redirectTo(Object)` 和 `navigateTo(Object)` 只能打开非 tabBar 页面。
+12. `switchTab(Object)` 方法只能用在 tabbar 选型卡的跳转。`reLaunch(Object)` 可以打开任意页面。
 13. 常见冒泡事件：
     * `touchstart` 手指触摸动作开始
     * `touchmove` 手指触摸后移动
