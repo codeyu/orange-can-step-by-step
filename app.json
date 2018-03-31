@@ -1,11 +1,12 @@
 {
   "pages":[
-    "pages/post/post",
     "pages/welcome/welcome",
+    "pages/post/post",
+    
     "pages/orange/orange"
     
   ],
   "window": {
-    "navigationBarBackgroundColor": "#ecc0a8"
+    "navigationBarBackgroundColor": "#4a6141"
   }
 }

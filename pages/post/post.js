@@ -34,7 +34,7 @@ Page({
       postImg: "/images/post/post-1.jpg",
       avatar: "/images/avatar/avatar-1.png",
       content: "记忆里的春节小的时候，特别盼望过年。有好吃的，有好玩的，有热闹可以看，还有新衣服可以穿。在乡下，每到腊月，家家户户开始陆续地杀猪。 ...",
-      readingNum: 700,
+      readingNum: 723,
       collectionNum: { array: [12] },
       commentNum: 9
     }, {
@@ -43,7 +43,7 @@ Page({
       postImg: "/images/post/post-5.jpg",
       avatar: "/images/avatar/avatar-2.png",
       content: "自打我小时候记事到如今，村旁那铁路和飞驰的列车，虽经多次变迁，但总是从我的家乡杜家堡村旁经过。那些呼啸而过的列车，给我的童年和老年人生，留下了很多有趣的记忆和诸多的故事。 ...",
-      readingNum: 1000,
+      readingNum: 1057,
       collectionNum: { array: [401] },
       commentNum: 32
     }];
