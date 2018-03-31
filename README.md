@@ -76,10 +76,24 @@
 4. 引入模版的方式有import和include。区别：
     * include页面渲染时只是简单的替换。模版文件需去掉 `<template></template>` 标签
     * import可以使用 data 属性传输数据
-5. 应用程序的生命周期：
+5. 在 `app.js` 文件中使用 `App(object)` 注册小程序，并在object中指定小程序的生命周期函数等。应用程序的生命周期：
     * onLaunch  全局只触发一次
     * onShow
     * onHide
     * onError
 6. 使用 ES6 语法写程序。
 7. 小程序的缓存没有过期时间，就是一个本地数据库。当数据有变化时，要注意更新缓存。
+
+## 第六章
+知识点
+
+1. 事件只能在组件上绑定。标签如 `block`，`template` 不能绑定事件。
+2. 页面间传递参数，一般用 url 的 `query参数` 传递。另外还可以通过 `全局变量`，`缓存`传递。
+3. `event` 事件对象中，有一个 `currentTarget` 代表事件绑定的当前组件。
+4. `event.currentTarget.dataset` 对象包含当前组件中所有属性名以 `data-` 开头的属性值.
+4. 组件的自定义属性规则如下：
+    * 必须以 `data-` 开头
+    * 多个单词用连字符 `-` 连接
+    * 单词中最好不要有大写字母，若有，除单词第一个字母外，其余大写字母将被转成小写
+    * 在js中获取自定义属性时，多个单词将被转化为驼峰命名，如 `data-pOST-ID` 将转为 `dataset.postId`, `data-postId` 将转为 `dataset.postid`
+    * 通过 `dataset` 获取属性值需要把 `data-` 前缀去掉。如 `data-pOST-ID` 为 `dataset.postId`, `data-postId` 为 `dataset.postid`

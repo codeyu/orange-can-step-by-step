@@ -20,13 +20,24 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "启动post-detail",
+					"pathName": "pages/post/post-detail/post-detail",
+					"query": "id=2"
+				}
+			]
 		}
 	}
 }
