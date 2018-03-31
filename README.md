@@ -36,7 +36,7 @@
 7. 小程序使用 Mustache 语法双大括号 `{{}}` 在 wxml 组件里进行数据绑定。页面数据绑定的两种方式：
     * 初始化数据绑定，数据写在 `Page(Object)` 方法 Object 对象参数的 `data:{}` 属性里。
     * 使用 `setData(Object)` 方法做数据绑定，这样的数据更新会引起页面 Rerender（重新渲染），参考上图。
-8. 注意复杂对象绑定时，页面引用的数据结构的方式
+8. 注意复杂对象绑定时，页面引用的数据结构的方式。
 9. `setData(Object)` 方法的对象参数的 `key` 很灵活，如 `"collectionNum.array[0]":"111"`。数据绑定出问题目前没有任何异常提示，请通过调试面板里的 `AppData` tab页查看排除。
 10. 用 `<block></block>` 标签进行列表渲染，属性 `wx:for` 值为要绑定的数据(数组)，属性 `wx:for-item`  值为要遍历的变量名，属性 `wx:for-index` 的值为索引变量。
 11. `redirectTo(Object)` 方法会触发卸载(onUnload)事件，`navigateTo(Object)` 方法会触发隐藏(onHide)事件，跳转后右上角有返回图标。使用 `navigateTo(Object)` 方法跳转建议不要超过3层。
@@ -52,3 +52,13 @@
     * `catch`前缀将阻止事件继续向父节点传播
     * `bind`前缀不会阻止
 15. 除以上6种事件外，其他基本都是非冒泡事件，如 `<form/> 的 submit` 事件，`<input/> 中的 input` 事件，`<scroll-view/> 的 scroll` 事件等。
+
+## 第五章 模块，模版与缓存
+知识点
+
+1. 小程序开发代码组织架构调整，依照软件设计原则：低耦合，分层，模块化，MVVM等。
+2. 小程序的模版目前只能封装wxml和wxss，不能封装js。模版中使用的js需要在父页面中引用。
+3. 消除template模版对外部变量名的依赖，使用扩展运算符：`{{...变量名}}`
+4. 引入模版的方式有import和include。区别：
+    * include页面渲染时只是简单的替换。模版文件需去掉 `<template></template>` 标签
+    * import可以使用 data 属性传输数据
