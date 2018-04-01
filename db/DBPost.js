@@ -1,3 +1,4 @@
+var util = require('../util/util.js')
 class DBPost {
   constructor(postId) {
     this.storageKeyName = "postList";
@@ -12,8 +13,8 @@ class DBPost {
     }
     return res;
   }
-  execSetStorageSync() {
-    wx.setStorageSync(this.storageKeyName);
+  execSetStorageSync(data) {
+    wx.setStorageSync(this.storageKeyName, data);
   }
   getPostItemById() {
     var postsData = this.getAllPostData();
@@ -27,7 +28,7 @@ class DBPost {
       }
     }
   }
-  updatePostData(action) {
+  updatePostData(action, newComment) {
     const itemData = this.getPostItemById();
     let postData = itemData.data;
     let allPostData = this.getAllPostData();
@@ -50,6 +51,13 @@ class DBPost {
           postData.upNum--;
         }
         break;
+      case "comment":
+        postData.comments.push(newComment);
+        postData.commentNum++;
+        break;
+      case "reading":
+        postData.readingNum++;
+        break;
       default:
         break;
     }
@@ -60,8 +68,34 @@ class DBPost {
   collect() {
     return this.updatePostData('collect');
   }
-  up(){
+  up() {
     return this.updatePostData('up');
+  }
+  getCommentData() {
+    var itemData = this.getPostItemById().data;
+    itemData.comments.sort(this.compareWithTime);
+    var len = itemData.comments.length, comment;
+    for (var i = 0; i < len; i++) {
+      comment = itemData.comments[i];
+      comment.create_time = util.getDiffTime(comment.create_time, true);
+    }
+    return itemData.comments;
+  }
+  newComment(newComment){
+    this.updatePostData('comment', newComment);
+  }
+  addReadingTimes(){
+    this.updatePostData("reading");
+  }
+  compareWithTime(value1, value2) {
+    var flag = parseFloat(value1.create_time) - parseFloat(value2.create_time);
+    if (flag < 0) {
+      return 1;
+    } else if (flag > 0) {
+      return -1
+    } else {
+      return 0;
+    }
   }
 };
 export { DBPost }

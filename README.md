@@ -109,3 +109,8 @@
     * wx.showModal
     * wx.showActionSheet
 3. 善用本地缓存。
+4. 控制UI元素的显示与隐藏的另一种方式是使用 `hidden` 属性。它的值也是bool类型的变量。和 `wx:if` 用法比较：
+    * 在需要频繁切换的情景用 `hidden` 更好
+    * 在运行时条件不大可能改变时用 `wx:if` 更好
+5. input 组件的用法。官方教程：[input组件](https://developers.weixin.qq.com/miniprogram/dev/component/input.html)。
+6. 敏感操作需要获得用户主动授权。一定要处理用户拒绝授权的场景。

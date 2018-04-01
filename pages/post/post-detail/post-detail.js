@@ -18,7 +18,8 @@ Page({
     this.postData = this.dbPost.getPostItemById().data;
     this.setData({
       post: this.postData
-    })
+    });
+    this.addReadingTimes();
   },
 
   /**
@@ -97,5 +98,14 @@ Page({
       icon: "success",
       mask: true
     })
+  },
+  onCommentTap:function(event){
+    var id = event.currentTarget.dataset.postId;
+    wx.navigateTo({
+      url: '../post-comment/post-comment?id='+id,
+    })
+  },
+  addReadingTimes:function(){
+    this.dbPost.addReadingTimes();
   }
 })
