@@ -89,11 +89,23 @@
 
 1. 事件只能在组件上绑定。标签如 `block`，`template` 不能绑定事件。
 2. 页面间传递参数，一般用 url 的 `query参数` 传递。另外还可以通过 `全局变量`，`缓存`传递。
-3. `event` 事件对象中，有一个 `currentTarget` 代表事件绑定的当前组件。
-4. `event.currentTarget.dataset` 对象包含当前组件中所有属性名以 `data-` 开头的属性值.
-4. 组件的自定义属性规则如下：
+3. 接收别的页面传递过来的 `query参数` 的方式是通过本页面的生命周期函数 `onLoad` 里的 `options` 参数来获取。
+4. `event` 事件对象中，有一个 `currentTarget` 代表事件绑定的当前组件。
+5. `event.currentTarget.dataset` 对象包含当前组件中所有属性名以 `data-` 开头的属性值.
+6. 组件的自定义属性规则如下：
     * 必须以 `data-` 开头
     * 多个单词用连字符 `-` 连接
     * 单词中最好不要有大写字母，若有，除单词第一个字母外，其余大写字母将被转成小写
     * 在js中获取自定义属性时，多个单词将被转化为驼峰命名，如 `data-pOST-ID` 将转为 `dataset.postId`, `data-postId` 将转为 `dataset.postid`
     * 通过 `dataset` 获取属性值需要把 `data-` 前缀去掉。如 `data-pOST-ID` 为 `dataset.postId`, `data-postId` 为 `dataset.postid`
+
+## 第七章
+知识点
+
+1. 组件条件渲染 `wx:if`, `wx:elif` 和 `wx:else`，其中 `wx:if` 和 `wx:elif` 的值为条件变量，`wx:else` 不需要设置值。根据条件值是否为 true 判断应该显示哪个组件。
+2. 交互式反馈API：
+    * wx.showToast
+    * wx.hideToast
+    * wx.showModal
+    * wx.showActionSheet
+3. 善用本地缓存。
