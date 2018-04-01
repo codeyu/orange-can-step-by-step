@@ -69,7 +69,12 @@ var postList = [{
         img: [],
         audio: { url: "http://123", timeLen: 8 },
       }
-    }]
+    }], 
+    music: {
+      url: "http://ws.stream.qqmusic.qq.com/C100003XYcCu3IZKLc.m4a?fromtag=38",
+      title: "老狼 虎口脱险",
+      coverImg: "http://y.gtimg.cn/music/photo_new/T002R150x150M000002sNbWp3royJG.jpg?max_age=2592000"
+    }
   }, {
     postId: 3,
     date: "Jun 20 2017",

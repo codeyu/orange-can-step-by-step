@@ -114,3 +114,8 @@
     * 在运行时条件不大可能改变时用 `wx:if` 更好
 5. input 组件的用法。官方教程：[input组件](https://developers.weixin.qq.com/miniprogram/dev/component/input.html)。
 6. 敏感操作需要获得用户主动授权。一定要处理用户拒绝授权的场景。
+
+## 第八章
+知识点
+
+1. 全局变量的使用。一般在 `app.js` 中设置一个全局变量对象。如 `globalData:{}`。各页面使用的方式是在顶部声明： `var app = getApp();`

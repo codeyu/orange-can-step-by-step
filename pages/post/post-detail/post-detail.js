@@ -1,12 +1,13 @@
 // pages/post/post-detail/post-detail.js
 import { DBPost } from "../../../db/DBPost.js";
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isPlayingMusic:false
   },
 
   /**
@@ -20,6 +21,8 @@ Page({
       post: this.postData
     });
     this.addReadingTimes();
+    this.setMusicMonitor();
+    this.initMusicStatus();
   },
 
   /**
@@ -49,7 +52,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    //wx.stopBackgroundAudio();
+    //this.setData({
+    //  isPlayingMusic:false
+    //})
   },
 
   /**
@@ -107,5 +113,68 @@ Page({
   },
   addReadingTimes:function(){
     this.dbPost.addReadingTimes();
+  },
+  onMusicTap:function(event){
+    if (this.data.isPlayingMusic) {
+      wx.pauseBackgroundAudio();
+      this.setData({
+        isPlayingMusic: false
+      });
+      app.globalData.g_isPlayingMusic = false;
+    }
+    else {
+      wx.playBackgroundAudio({
+        dataUrl: this.postData.music.url,
+        title: this.postData.music.title,
+        coverImgUrl: this.postData.music.coverImg
+      })
+      this.setData({
+        isPlayingMusic: true
+      });
+      app.globalData.g_isPlayingMusic = true;
+      app.globalData.g_currentMusicPostId = this.postData.postId;
+    }
+  },
+  setMusicMonitor: function () {
+    var that = this;
+    wx.onBackgroundAudioStop(function () {
+      that.setData({
+        isPlayingMusic: false
+      });
+      app.globalData.g_isPlayingMusic = false;
+    });
+    wx.onBackgroundAudioPlay(function (event) {
+      // 只处理当前页面的音乐播放。
+      if (app.globalData.g_currentMusicPostId === that.postData.postId) {
+        that.setData({
+          isPlayingMusic: true
+        })
+      }
+      app.globalData.g_isPlayingMusic = true;
+    });
+
+    wx.onBackgroundAudioPause(function () {
+      // 只处理当前页面的音乐暂停。
+      if (app.globalData.g_currentMusicPostId == that.postData.postId) {
+        that.setData({
+          isPlayingMusic: false
+        })
+      }
+      app.globalData.g_isPlayingMusic = false;
+    });
+  },
+  initMusicStatus: function () {
+    var currentPostId = this.postData.postId;
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === currentPostId){
+      this.setData({
+        isPlayingMusic: true
+      })
+    }
+    else{
+      this.setData({
+        isPlayingMusic: false
+      })
+    }
+    
   }
 })
