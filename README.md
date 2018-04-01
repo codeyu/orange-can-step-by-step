@@ -119,3 +119,17 @@
 知识点
 
 1. 全局变量的使用。一般在 `app.js` 中设置一个全局变量对象。如 `globalData:{}`。各页面使用的方式是在顶部声明： `var app = getApp();`
+
+## 第九章
+知识点
+
+1. 事件冒泡机制的运用，在父级元素定义冒泡事件，当操作子元素时，事件会冒泡上升传递到父元素，从而被父级元素事件捕获。
+2. currentTarget 和 target 的区别：
+    * target 指的是事件最开始被触发的元素
+    * currentTarget 指的是捕获事件的元素
+3. 小程序动画效果的实践。几个概念了解下：
+    * 动画实例 animation = wx.createAnimation(object)
+    * 动画组 animation.scale(2).rotate(45).step().translate(30).step()
+    * 动画方法 scale(2).rotate(45)
+    * 动画队列 动画组以 `step()` 方法分隔 每个队列
+    * 导出后需绑定到要实现动画的元素上。 `animation.export()`  `{}.bind(this)`

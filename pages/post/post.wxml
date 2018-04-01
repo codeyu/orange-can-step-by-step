@@ -1,15 +1,15 @@
 <!--pages/post/post.wxml-->
 <import src="post-item/post-item-tpl.wxml" />
 <view>
-  <swiper indicator-dots='true' autoplay='true' interval='3000' vertical='{{false}}'>
+  <swiper catchtap='onSwiperTap' indicator-dots='true' autoplay='true' interval='3000' vertical='{{false}}'>
     <swiper-item>
-      <image src='/images/post/post-1@text.jpg'></image>
+      <image src='/images/post/post-1@text.jpg' data-post-id='3'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/post/post-2@text.jpg'></image>
+      <image src='/images/post/post-2@text.jpg' data-post-id='4'></image>
     </swiper-item>
     <swiper-item>
-      <image src='/images/post/post-3@text.jpg'></image>
+      <image src='/images/post/post-3@text.jpg' data-post-id='5'></image>
     </swiper-item>
   </swiper>
 </view>

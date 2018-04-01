@@ -23,6 +23,7 @@ Page({
     this.addReadingTimes();
     this.setMusicMonitor();
     this.initMusicStatus();
+    this.setAnimation();
   },
 
   /**
@@ -76,7 +77,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title:this.postData.title,
+      desc:this.postData.content,
+      path:"/pages/post/post-detail/post-detail"
+    }
   },
 
   onCollectionTap: function (event) {
@@ -98,12 +103,16 @@ Page({
       'post.upStatus': newData.upStatus,
       'post.upNum': newData.upNum
     });
-    wx.showToast({
-      title: newData.upStatus ? '点赞成功' : '取消点赞',
-      duration: 1000,
-      icon: "success",
-      mask: true
+    this.animationUp.scale(2).step();
+    this.setData({
+      animationUp: this.animationUp.export()
     })
+    setTimeout(function () {
+      this.animationUp.scale(1).step();
+      this.setData({
+        animationUp: this.animationUp.export()
+      })
+    }.bind(this), 300);
   },
   onCommentTap:function(event){
     var id = event.currentTarget.dataset.postId;
@@ -176,5 +185,11 @@ Page({
       })
     }
     
+  },
+  setAnimation:function(){
+    var animationUp = wx.createAnimation({
+      timingFunction:'ease-in-out'
+    });
+    this.animationUp = animationUp;
   }
 })
