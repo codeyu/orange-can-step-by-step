@@ -1,6 +1,6 @@
 Page({
   onTapJump: function (event) {
-    wx.navigateTo({
+    wx.switchTab({
       url: '../post/post',
       success: function () {
         console.log("jump success");

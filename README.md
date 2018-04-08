@@ -133,3 +133,10 @@
     * 动画方法 scale(2).rotate(45)
     * 动画队列 动画组以 `step()` 方法分隔 每个队列
     * 导出后需绑定到要实现动画的元素上。 `animation.export()`  `{}.bind(this)`
+
+## 第十章
+知识点
+1. tabBar控件和嵌套模版的使用
+    * `tabBar` 在 `app.json` 里设置
+    * 跳转到带 `tabBar` 的页面，需要用 `wx.switchTab` 方法
+2. 利用 `wx.request` 和后端服务交互
